@@ -31,10 +31,16 @@ public class ProcessadorBoletosTest {
         Boleto boleto2 = new Boleto(2, new Date(), 200.00f);
 
         Boleto[] boletosRegistrados = processadorBoletos.registrarBoletos(boleto1, boleto2);
+        Pagamento[] pagamentos = processadorBoletos.fazerPagamentos(boletosRegistrados);
+        float valorTotal = 0.00f;
+       
+        for(int i = 0; i < pagamentos.length; i++){
+            valorTotal += pagamentos[i].getValorPago();
+        }
+       
         @SuppressWarnings("unused")
-        Fatura fatura = processadorBoletos.gerarFatura("João", boletosRegistrados);
+        Fatura fatura = processadorBoletos.gerarFatura(valorTotal, "João");
         @SuppressWarnings("unused")
         Fatura faturaTestandoParâmetros = new Fatura(new Date(), 0, "teste");
      }
-
 }
