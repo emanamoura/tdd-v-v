@@ -23,4 +23,18 @@ public class ProcessadorBoletosTest {
         Date dataAtual = new Date();
         new Boleto(4, dataAtual, 500.00f);
     }
+
+    @Test
+    public void criarFatura() {
+        ProcessadorBoletos processadorBoletos = new ProcessadorBoletos();
+        Boleto boleto1 = new Boleto(1, new Date(), 100.00f);
+        Boleto boleto2 = new Boleto(2, new Date(), 200.00f);
+
+        Boleto[] boletosRegistrados = processadorBoletos.registrarBoletos(boleto1, boleto2);
+        @SuppressWarnings("unused")
+        Fatura fatura = processadorBoletos.gerarFatura("João", boletosRegistrados);
+        @SuppressWarnings("unused")
+        Fatura faturaTestandoParâmetros = new Fatura(new Date(), 0, "teste");
+     }
+
 }
