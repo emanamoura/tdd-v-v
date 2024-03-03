@@ -14,21 +14,21 @@ public class Fatura {
     }
     public Fatura() {
     }
-    
+
     public Date getData() {
-        return data;
+        return this.data;
     }
     public void setData(Date data) {
         this.data = data;
     }
     public float getValorTotal() {
-        return valorTotal;
+        return this.valorTotal;
     }
     public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
     public String getNomeCliente() {
-        return nomeCliente;
+        return this.nomeCliente;
     }
     public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;

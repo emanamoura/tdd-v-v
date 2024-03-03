@@ -1,44 +1,72 @@
 package com.example;
 
-public class main {
-    private Boleto[] boletos; 
-    private Pagamento[] pagamentos;
-    private Fatura[] faturas;
-    
-    public main() {
-    }
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
-    public main(Boleto[] boletos, Pagamento[] pagamentos, Fatura[] faturas) {
-        this.boletos = boletos;
-        this.pagamentos = pagamentos;
-        this.faturas = faturas;
-    }
+public class main {
+    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Boleto> boletos = new ArrayList<>(); 
+    static ArrayList<Pagamento> pagamentos = new ArrayList<>();
+    static Fatura fatura;
+    static ProcessadorBoletos proBole = new ProcessadorBoletos();
 
     public static void main(String[] args) {
-                
+ 
+        fatura = registrarFatura();
+
+        System.out.print("Deseja registrar um boleto?(sim/nao): ");
+        String resposta = scanner.next();
+        while(resposta.equals("sim") || resposta.equals("nao")){
+            if(resposta.equals("nao")){
+                break;
+            }
+            else if(resposta.equals("sim")){
+            boletos.add(criarBoleto());
+            System.out.print("Deseja registrar outro boleto?(sim/nao): ");
+            resposta = scanner.next();
+            }
+            else{
+                System.out.print("Resposta Inválida, deseja registrar um boleto?(sim/nao): ");
+                resposta = scanner.next();
+            }
+        }
+
+        for (Pagamento pagamento : proBole.fazerPagamentos((boletos))){
+            pagamentos.add(pagamento);
+        }
+
+        float totalPagamentos = 0.00f;
+        for(Pagamento pagamento: pagamentos){
+            totalPagamentos += pagamento.getValorPago();
+        }
+
+        if(totalPagamentos >= fatura.getValorTotal()){
+            System.out.println("Fatura paga com sucesso!");
+        } else{
+            System.out.println("A fatura não está totalmente paga");
+        }
     }
 
-    public Boleto[] getBoletos() {
-        return boletos;
+    public static Fatura registrarFatura(){
+        System.out.println("Registre a fatura");
+        System.out.print("Valor Total: ");
+        Float valorTotal = scanner.nextFloat();
+        System.out.print("Seu nome: ");
+        String nome = scanner.next();
+
+        return proBole.gerarFatura(valorTotal, nome);
     }
 
-    public void setBoletos(Boleto[] boletos) {
-        this.boletos = boletos;
-    }
+    public static Boleto criarBoleto(){
+        System.out.print("Código: ");
+        int codigo = scanner.nextInt();
+        
+        Date data = new Date();
 
-    public Pagamento[] getPagamentos() {
-        return pagamentos;
-    }
+        System.out.print("ValorPago: ");
+        float valorPago = scanner.nextFloat();
 
-    public void setPagamentos(Pagamento[] pagamentos) {
-        this.pagamentos = pagamentos;
-    }
-
-    public Fatura[] getFaturas() {
-        return faturas;
-    }
-
-    public void setFaturas(Fatura[] faturas) {
-        this.faturas = faturas;
+        return proBole.registrarBoleto(new Boleto(codigo, data, valorPago));
     }
 }

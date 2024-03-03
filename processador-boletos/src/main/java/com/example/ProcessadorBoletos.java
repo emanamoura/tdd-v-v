@@ -1,19 +1,20 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ProcessadorBoletos {
-    public Boleto[] registrarBoletos(Boleto... boletos){
-        return boletos;
+    public Boleto registrarBoleto(Boleto boleto){
+        return boleto;
     }
 
-    public Pagamento[] fazerPagamentos(Boleto... boletos){
-        Pagamento[] pagamentos = new Pagamento[boletos.length];
-        for(int i = 0; i < boletos.length; i++){
-            pagamentos[i] = new Pagamento();
-            pagamentos[i].setValorPago(boletos[i].getValorPago());
-            pagamentos[i].setTipoPagamento("BOLETO");
-            pagamentos[i].setData(new Date());
+    public ArrayList<Pagamento> fazerPagamentos(ArrayList<Boleto> boletos){
+        ArrayList<Pagamento> pagamentos = new ArrayList<>();
+        for(int i = 0; i < boletos.size(); i++){
+            pagamentos.add(new Pagamento());
+            pagamentos.get(i).setValorPago(boletos.get(i).getValorPago());
+            pagamentos.get(i).setTipoPagamento("BOLETO");
+            pagamentos.get(i).setData(new Date());
         }
         return pagamentos;
     }

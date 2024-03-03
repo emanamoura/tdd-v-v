@@ -2,8 +2,8 @@ package com.example;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Date;
-
 import org.junit.Test;
 
 public class ProcessadorBoletosTest {
@@ -11,10 +11,9 @@ public class ProcessadorBoletosTest {
     public void receberBoletos() {
         ProcessadorBoletos processadorBoletos = new ProcessadorBoletos();
         Boleto boleto1 = new Boleto();
-        Boleto boleto2 = new Boleto();
         
-        Boleto[] boletosRegistrados = processadorBoletos.registrarBoletos(boleto1, boleto2);
-        assertTrue("A saída deve ser uma array de boletos", boletosRegistrados instanceof Boleto[]);
+        Boleto boletosRegistrados = processadorBoletos.registrarBoleto(boleto1);
+        assertTrue("A saída deve ser do tipo Boleto", boletosRegistrados instanceof Boleto);
     }
 
     @Test
@@ -28,13 +27,14 @@ public class ProcessadorBoletosTest {
         ProcessadorBoletos processadorBoletos = new ProcessadorBoletos();
         Boleto boleto1 = new Boleto(1, new Date(), 100.00f);
         Boleto boleto2 = new Boleto(2, new Date(), 200.00f);
-
-        Boleto[] boletosRegistrados = processadorBoletos.registrarBoletos(boleto1, boleto2);
-        Pagamento[] pagamentos = processadorBoletos.fazerPagamentos(boletosRegistrados);
+        ArrayList<Boleto> boletosRegistrados = new ArrayList<>();
+        boletosRegistrados.add(processadorBoletos.registrarBoleto(boleto1));
+        boletosRegistrados.add(processadorBoletos.registrarBoleto(boleto2));
+        ArrayList<Pagamento> pagamentos = processadorBoletos.fazerPagamentos(boletosRegistrados);
         float valorTotal = 0.00f;
        
-        for(int i = 0; i < pagamentos.length; i++){
-            valorTotal += pagamentos[i].getValorPago();
+        for(int i = 0; i < pagamentos.size(); i++){
+            valorTotal += pagamentos.get(i).getValorPago();
         }
        
         @SuppressWarnings("unused")
