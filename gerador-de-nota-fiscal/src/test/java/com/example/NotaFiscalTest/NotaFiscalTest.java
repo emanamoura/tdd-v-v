@@ -1,4 +1,9 @@
+package com.example.NotaFiscalTest;
+
 import org.junit.Test;
+
+import com.example.NotaFiscal.NotaFiscal;
+
 import static org.junit.Assert.assertEquals;
 
 public class NotaFiscalTest {
@@ -6,7 +11,7 @@ public class NotaFiscalTest {
     @Test
     public void instanciarNotaFiscal() {
         NotaFiscal notaFiscal = new NotaFiscal("Cliente Teste", 1000.0, 250.0);
-        assertEquals(notaFiscal.getClass().getSimpleName(), 'NotaFiscal');
+        assertEquals(notaFiscal.getClass().getSimpleName(), "NotaFiscal");
     }
 
     @Test

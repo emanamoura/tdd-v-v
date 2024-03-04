@@ -1,10 +1,7 @@
-package com.example;
+package com.example.FaturaTest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Date;
 import org.junit.Test;
 
 import com.example.Fatura.Fatura;
