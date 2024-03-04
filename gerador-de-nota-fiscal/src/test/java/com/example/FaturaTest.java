@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import org.junit.Test;
 
+import com.example.Fatura.Fatura;
+
 public class FaturaTest {
     @Test
     public void instanciarFatura() {
@@ -30,6 +32,11 @@ public class FaturaTest {
     public void testGetTipoServico() {
         Fatura fatura = new Fatura("Cliente Teste", "Endereço Teste", "CONSULTORIA", 1000.0);
         assertEquals("CONSULTORIA", fatura.getTipoServico());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testServicoNaoEsperadoAoCriarClasse() {
+        Fatura fatura = new Fatura("Cliente Teste", "Endereço Teste", "", 1000.0);
     }
 
 }
