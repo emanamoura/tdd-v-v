@@ -16,4 +16,8 @@ public class Fatura {
     public String getNomeCliente() {
         return nomeCliente;
     }
+
+    public double getValor() {
+        return valor;
+    }
 }
