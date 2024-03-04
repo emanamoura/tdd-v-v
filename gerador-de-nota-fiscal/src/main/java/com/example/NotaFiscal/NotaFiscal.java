@@ -10,4 +10,8 @@ public class NotaFiscal {
         this.valor = valor;
         this.valorImposto = valorImposto;
     }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
 }
