@@ -31,6 +31,6 @@ public class NotaFiscalDaoTest {
         notaFiscalDAO.salva(notaFiscal);
 
         String output = outContent.toString();
-        assertTrue(output.contains("Enviando pro SAP"));
+        assertTrue(output.contains("Salvando no banco"));
     }
 }
