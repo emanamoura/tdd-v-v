@@ -1,7 +1,6 @@
 package com.example.SAP;
 
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.SystemOutRule;
 import com.example.NotaFiscal.NotaFiscal;
 
 import static org.junit.Assert.assertEquals;
@@ -10,7 +9,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import org.junit.Rule;
 
 public class SAPTest {
     @Test
@@ -25,7 +23,7 @@ public class SAPTest {
         SAP sap = new SAP();
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
+        
         System.setOut(new PrintStream(outContent));
 
         sap.envia(notaFiscal);
