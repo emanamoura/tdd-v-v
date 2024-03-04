@@ -21,4 +21,18 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>11</source> <!-- Change this to your desired Java version -->
+                <target>11</target> <!-- Change this to your desired Java version -->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
 </project>
