@@ -20,4 +20,8 @@ public class Fatura {
     public double getValor() {
         return valor;
     }
+
+    public String getTipoServico() {
+        return tipoServico;
+    }
 }
