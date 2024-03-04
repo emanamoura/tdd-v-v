@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Fatura;
 
 public class Fatura {
     private String nomeCliente;
@@ -9,7 +9,7 @@ public class Fatura {
     public Fatura(String nomeCliente, String enderecoCliente, String tipoServico, double valor) {
         this.nomeCliente = nomeCliente;
         this.enderecoCliente = enderecoCliente;
-        this.tipoServico = tipoServico;
+        this.setTipoServico(tipoServico);
         this.valor = valor;
     }
 
@@ -24,4 +24,12 @@ public class Fatura {
     public String getTipoServico() {
         return tipoServico;
     }
+
+    private void setTipoServico(String tipoServico) {
+        String tipoServicoFormatado = tipoServico.trim();
+        if(tipoServicoFormatado.trim().length() <= 0) {
+            throw new IllegalArgumentException();
+        }
+        this.tipoServico = tipoServicoFormatado.trim();
+    }   
 }
