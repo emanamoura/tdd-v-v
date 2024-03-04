@@ -33,7 +33,7 @@ public class FaturaTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testServicoNaoEsperadoAoCriarClasse() {
-        Fatura fatura = new Fatura("Cliente Teste", "Endereço Teste", "", 1000.0);
+        new Fatura("Cliente Teste", "Endereço Teste", "", 1000.0);
     }
 
 }

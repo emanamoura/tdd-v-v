@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import com.example.NotaFiscal.NotaFiscal;
 import com.example.NotaFiscal.NotaFiscalDAO.NotaFiscalDAO;
-import com.example.SAP.SAP;
 
 public class NotaFiscalDaoTest {
     @Test
