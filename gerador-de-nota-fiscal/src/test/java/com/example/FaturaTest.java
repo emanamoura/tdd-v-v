@@ -26,4 +26,10 @@ public class FaturaTest {
         assertEquals(1000.0, fatura.getValor(), 0.01);
     }
 
+    @Test
+    public void testGetTipoServico() {
+        Fatura fatura = new Fatura("Cliente Teste", "Endereço Teste", "CONSULTORIA", 1000.0);
+        assertEquals("CONSULTORIA", fatura.getTipoServico());
+    }
+
 }
