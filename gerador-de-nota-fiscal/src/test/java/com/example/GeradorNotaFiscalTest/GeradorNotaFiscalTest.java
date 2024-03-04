@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.example.Fatura.Fatura;
+import com.example.GeradorDeNotaFiscal.GeradorNotaFiscal;
 import com.example.NotaFiscal.NotaFiscal;
 import com.example.NotaFiscal.NotaFiscalDAO.NotaFiscalDAO;
 import com.example.SAP.SAP;
