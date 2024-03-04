@@ -18,4 +18,8 @@ public class NotaFiscal {
     public double getValor() {
         return valor;
     }
+
+    public double getValorImposto() {
+        return valorImposto;
+    }
 }
