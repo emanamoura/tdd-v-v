@@ -1,7 +1,8 @@
-package com.example.SAP;
+package com.example.SAPTest;
 
 import org.junit.Test;
 import com.example.NotaFiscal.NotaFiscal;
+import com.example.SAP.SAP;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
