@@ -2,7 +2,7 @@ package com.example.SMTPTest;
 
 import org.junit.Test;
 import com.example.NotaFiscal.NotaFiscal;
-import com.example.SAP.SAP;
+import com.example.SMTP.SMTP;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
